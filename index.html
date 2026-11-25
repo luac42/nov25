@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Today's Lesson Plan</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      margin: 0 auto;
+      padding: 24px 20px 48px;
+      background: #ffffff;
+      color: #111827;
+      font-size: 17px;
+      line-height: 1.55;
+      max-width: 580px;
+    }
+
+    /* Segmented pill switcher */
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+    .tabs button {
+      flex: 1;
+      padding: 13px 16px;
+      font-size: 17px;
+      font-weight: 700;
+      background: #f3f4f6;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      color: #4b5563;
+      transition: all 0.15s ease;
+    }
+    .tabs button.active {
+      background: #111827;
+      color: #ffffff;
+    }
+
+    .panel { display: none; }
+    .panel.active { display: block; }
+
+    h2 {
+      margin: 0 0 6px;
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .meta {
+      color: #6b7280;
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+
+    /* Clean, spacious checklist */
+    .steps {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 28px;
+    }
+    .steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 18px;
+      font-size: 18px;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #e0e7ff;
+      color: #3730a3;
+      font-weight: 800;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+    .time-tag {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 600;
+      color: #4f46e5;
+      margin-left: 4px;
+    }
+
+    /* Minimal, borderless accordions */
+    details {
+      margin: 14px 0;
+    }
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 16.5px;
+      color: #374151;
+      padding: 6px 0;
+      list-style: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::before {
+      content: "→ ";
+      color: #4f46e5;
+      font-weight: 800;
+    }
+    details[open] summary::before {
+      content: "↓ ";
+    }
+    details p, details ul {
+      margin: 6px 0 12px 20px;
+      color: #374151;
+      font-size: 16px;
+    }
+    details li {
+      margin-bottom: 6px;
+    }
+
+    /* Flat, single-highlight callout */
+    .heads-up {
+      margin-top: 24px;
+      padding: 16px 18px;
+      background: #fef9c3;
+      border-radius: 14px;
+      font-size: 16px;
+      color: #1f2937;
+    }
+    .heads-up-title {
+      font-weight: 800;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .footer-note {
+      margin-top: 24px;
+      font-size: 15px;
+      color: #6b7280;
+    }
+    strong { font-weight: 700; color: #111827; }
+  </style>
+</head>
+<body>
+
+  <div class="tabs">
+    <button class="active" onclick="show('y8', this)">Year 8</button>
+    <button onclick="show('y9', this)">Year 9</button>
+  </div>
+
+  <!-- Year 8 -->
+  <div id="y8" class="panel active">
+    <h2>Year 8 · ELA</h2>
+    <div class="meta">10:00–11:00 · Periods 3 &amp; 4 · Rm 613</div>
+
+    <ul class="steps">
+      <li>
+        <span class="step-num">1</span>
+        <div>Hop onto <strong>Google Classroom</strong>.</div>
+      </li>
+      <li>
+        <span class="step-num">2</span>
+        <div>Read through <strong>Slides 11–26</strong> of the <strong>Narrative Group Project</strong> PDF.</div>
+      </li>
+      <li>
+        <span class="step-num">3</span>
+        <div>Team up into groups of <strong>3 or 4</strong>.</div>
+      </li>
+      <li>
+        <span class="step-num">4</span>
+        <div>Start drafting your graphic novel and submit your <strong>plot-planning sheet</strong> on Classroom before the bell.</div>
+      </li>
+    </ul>
+
+    <details>
+      <summary>Quick rules for groups</summary>
+      <p>Keep it to <strong>3 or 4 people</strong>—no solo work and no groups of 5+. If the numbers don't divide evenly, check in with the teacher in class before making a pair.</p>
+    </details>
+
+    <details>
+      <summary>How to hand it in</summary>
+      <ul>
+        <li>Put <strong>everyone's name</strong> at the top of the plot-planning sheet.</li>
+        <li>Follow the prompts on the sheet to map out your early ideas.</li>
+        <li>Only <strong>one person</strong> needs to hit submit on Classroom for the whole group.</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Don't stress about perfection</summary>
+      <p>This is just your rough first draft! Get your ideas down and submitted today—we'll go through everything together properly next lesson.</p>
+    </details>
+
+    <div class="footer-note">Keep an eye on Google Classroom today for a reminder post!</div>
+  </div>
+
+  <!-- Year 9 -->
+  <div id="y9" class="panel">
+    <h2>Year 9 · ELA</h2>
+    <div class="meta">11:15–12:15 · Periods 5 &amp; 6 · Rm 704</div>
+
+    <ul class="steps">
+      <li>
+        <span class="step-num">1</span>
+        <div>Hop onto <strong>Google Classroom</strong>.</div>
+      </li>
+      <li>
+        <span class="step-num">2</span>
+        <div>Check your answers for the <strong>Direct Speech vs Reported Speech</strong> exercise <span class="time-tag">~10–15 mins</span></div>
+      </li>
+      <li>
+        <span class="step-num">3</span>
+        <div>Read through the <strong>Relative Clauses</strong> PowerPoint PDF.</div>
+      </li>
+      <li>
+        <span class="step-num">4</span>
+        <div>Finish and submit the <strong>Relative Clauses worksheet</strong> on Classroom before the end of class.</div>
+      </li>
+    </ul>
+
+    <details>
+      <summary>Tips for the worksheet</summary>
+      <ul>
+        <li>Keep the Relative Clauses PDF open while you work so you can check the examples.</li>
+        <li>Knock out the ones you know first, and flag any confusing ones to ask about later.</li>
+        <li>Submit whatever you have by the end of class even if you aren't 100% sure—we'll review it together next lesson.</li>
+      </ul>
+    </details>
+
+    <div class="heads-up">
+      <span class="heads-up-title">Heads up on assessments 👀</span>
+      • <strong>Unit 2 Speaking:</strong> Details are dropping on Google Classroom today.<br>
+      • <strong>Listening Assessment:</strong> Happening this <strong>Friday</strong>—make sure you're ready!
+    </div>
+
+    <div class="footer-note">Keep an eye on Google Classroom today for a reminder post!</div>
+  </div>
+
+  <script>
+    function show(id, btn) {
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      btn.classList.add('active');
+    }
+  </script>
+</body>
+</html>
