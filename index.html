@@ -147,8 +147,8 @@
 <body>
 
   <div class="tabs">
-    <button class="active" onclick="show('y8', this)">Year 8</button>
-    <button onclick="show('y9', this)">Year 9</button>
+    <button data-tab="y8" class="active" onclick="show('y8')">Year 8</button>
+    <button data-tab="y9" onclick="show('y9')">Year 9</button>
   </div>
 
   <!-- Year 8 -->
@@ -240,12 +240,31 @@
   </div>
 
   <script>
-    function show(id, btn) {
+    function show(id, updateHash = true) {
+      const panel = document.getElementById(id);
+      if (!panel) return;
+
       document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-      btn.classList.add('active');
+
+      panel.classList.add('active');
+      const btn = document.querySelector(`.tabs button[data-tab="${id}"]`);
+      if (btn) btn.classList.add('active');
+
+      if (updateHash && window.location.hash !== '#' + id) {
+        history.replaceState(null, '', '#' + id);
+      }
     }
+
+    function loadFromHash() {
+      const hash = window.location.hash.replace('#', '');
+      if (hash === 'y8' || hash === 'y9') {
+        show(hash, false);
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', loadFromHash);
+    window.addEventListener('hashchange', loadFromHash);
   </script>
 </body>
 </html>
